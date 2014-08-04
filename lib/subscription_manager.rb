@@ -1,4 +1,4 @@
-require './lib/subscription'
+require '../lib/subscription'
 
 @subscription = []
 
@@ -15,12 +15,15 @@ def main_menu
     elsif main_choice == 'e'
       edit_subscription
 
+    elsif main_choice == 'name'
+      list_all_subscriptions_by_name #sorted by name
+
     elsif main_choice == 'date'
-      list_all_subscriptions sorted by renewal date
+      list_all_subscriptions_by_date #sorted by renewal date
     elsif main_choice == 'subj'
-      list_all_subscriptions sorted by subject
+      list_all_subscriptions_by_subj #sorted by subject
     elsif main_choice == 'tax'
-      list_subscription_deductions
+      list_subscription_deductions # lists deductible first, then all others by name for review and edit
 
     elsif main_choice == 'x'
       puts "Good-bye!"
@@ -30,22 +33,25 @@ def main_menu
     end
   end
 end
+
 def add_subscription
   puts "Enter a subcription name:"
-  subscription.name = gets.chomp
-  puts "Enter a subcription type (online course, digital publication, paper publication):"
-  subscription.type = gets.chomp
+  name = gets.chomp
+  puts "Enter a subcription type (online course, digital publication, paper publication, audio subscription):"
+  type = gets.chomp
   puts "Enter a subcription price:"
-  subscription.price = gets.chomp
+  price = gets.chomp
   @subscription << Subscription.new(name, type, price)
-  puts "Task added.\n\n"
+  puts "Subscription added.\n\n"
 end
+
 
 def list_all_subscriptions
   puts "Here are all of your subscriptions:"
-  @list.each do |name|
-    puts " Name: #{name}  Type: #{type}  Price: #{name}  "
+  @subscription.each do |name|
+    puts "Name: #{name}  Type: #{name}  Price: #{name}  "
   end
+  puts "\n"
   puts "\n"
 end
 
