@@ -1,35 +1,33 @@
-# def subscription_manager
 
-# class Subscription
-# 	@@subscription = []
-# 	def initialize (name, 
-# 					type = "online course", 
-# 					url = "", 
-# 					amount, 
-# 					frequency = monthly, 
-# 					deductible = false, 
-# 					account_id = "",
-# 					password = "",
-# 					last_renewal_date = "date",
-# 					subject = "")
-# 		@name = name
-# 		@type = type
-# 		@url = url
-# 		@amount = amount
-# 		@frequency = frequency
-# 		@deductible = deductible
-# 		@account_id = account_id
-# 		@password = password
-# 		@last_renewal_date = last_renewal_date
-# 		@subject = subject
+@@subscription = []
 
-# 		puts 'A new instance has been initialized.'
-# 	end
+	class Subscription
+		
+		def initialize (name, type = "online course", price)
+			@name = name
+			@type = type
+			@url = ""
+			@price = price
+			@frequency = ""
+			@deductible = ""
+			@account_id = ""
+			@password = ""
+			@last_renewal_date = ""
+			@subject = ""
 
-# 	def save
-# 		@subscription << self
-# 	end
+			puts 'A new instance has been initialized.'
+		end
 
+		def Subscription.all
+    		@@all_subscriptions
+  		end
 
+  		def Subscription.clear
+    		@@all_subscriptions = []
+  		end
 
-# end
+  		def save
+    		@@all_subscriptions << self
+  		end
+	end
+

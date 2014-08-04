@@ -30,3 +30,23 @@ def main_menu
     end
   end
 end
+def add_subscription
+  puts "Enter a subcription name:"
+  subscription.name = gets.chomp
+  puts "Enter a subcription type (online course, digital publication, paper publication):"
+  subscription.type = gets.chomp
+  puts "Enter a subcription price:"
+  subscription.price = gets.chomp
+  @subscription << Subscription.new(name, type, price)
+  puts "Task added.\n\n"
+end
+
+def list_all_subscriptions
+  puts "Here are all of your subscriptions:"
+  @list.each do |name|
+    puts " Name: #{name}  Type: #{type}  Price: #{name}  "
+  end
+  puts "\n"
+end
+
+main_menu
