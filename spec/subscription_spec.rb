@@ -26,5 +26,15 @@ describe ('Subscription') do
       test_subscription.save
       Subscription.all.should eq [test_subscription]
     end
+
+    describe 'list_all_subscriptions_by_name' do
+    it 'puts a list of all subscriptions sorted by name to the terminal' do
+    	test_subscription1 = Subscription.new('Code School', "online course", "25.00")
+    	test_subscription2 = Subscription.new('Thoughbot Learn', "online course", "49.00")
+    	test_subscription3 = Subscription.new('Pluralsight', "online course", "49.00")
+    	test_subscription4 = Subscription.new('Safari Online', "digital publications", "42.99")
+    	test_subscription.save
+      expect Subscription.list_all_subscriptions_by_name.to be eq ['Code School', 'Pluralsight', 'Safari Online', 'Thoughtbot Learn']
+
   end
 end

@@ -6,7 +6,9 @@ def main_menu
   loop do
     puts "Press 'a' to add a subscription"
     puts "Press 'e' to edit a subscription"
+    puts "Enter 'name' to list all subscriptions sorted by name"
     puts "Enter 'date' to list all subscriptions sorted by renewal date"
+    puts "Enter 'subj' to list all subscriptions sorted by subject"
     puts "Enter 'tax' to list all subscriptions and the total deduction for this and last tax year"
     puts "Press 'x' to exit."
     main_choice = gets.chomp
@@ -26,10 +28,10 @@ def main_menu
       list_subscription_deductions # lists deductible first, then all others by name for review and edit
 
     elsif main_choice == 'x'
-      puts "Good-bye!"
+      puts "Good-bye! Take a sunshine break :) and go for a walk"
       exit
     else
-      puts "Sorry, that wasn't a valid option."
+      puts "Sorry, try again...that wasn't a valid option."
     end
   end
 end
