@@ -19,4 +19,12 @@ describe ('Subscription') do
 		  Subscription.all.should eq []
 	    end
 	end
+
+	describe '#save' do
+    it 'adds a subscription to the array of saved subscriptions' do
+      test_subscription = Subscription.new('Code School', "online course", "25.00")
+      test_subscription.save
+      Subscription.all.should eq [test_subscription]
+    end
+  end
 end
